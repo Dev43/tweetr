@@ -24,4 +24,9 @@
   position: absolute;
   right: 12px;
 
+
+}
+
+.max-characters{
+  color: red;
 }
