@@ -90,9 +90,19 @@ $('form').on('submit', function(event){
     return alert('Please input a text!');
   }
 
+
   $.post( "/tweets", $(this).serialize(), function() {
     loadTweets();
   });
+  $("form textarea").val("");
+
+})
+
+$("#nav-bar #compose").on('click', function(){
+
+  $('.new-tweet').slideToggle();
+  $('.new-tweet textarea').focus()
+
 
 })
 
