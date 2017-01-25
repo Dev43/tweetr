@@ -73,8 +73,9 @@ function createTweetElement(tweet){
 
 
 function renderTweets(arrayOfTweets){
+  $('#tweets').empty();
   arrayOfTweets.forEach(function(tweet){
-    $('#tweets').append(createTweetElement(tweet));
+    $('#tweets').prepend(createTweetElement(tweet));
   });
 
 }
@@ -82,10 +83,16 @@ function renderTweets(arrayOfTweets){
 
 $('form').on('submit', function(event){
   event.preventDefault();
+
+  if (event.target[0].value.length > 140){
+    return alert('Text too long, please give me a shorter text')
+  } else if(!event.target[0].value.length){
+    return alert('Please input a text!');
+  }
+
   $.post( "/tweets", $(this).serialize(), function() {
-  console.log("It has been posted!!!");
-  loadTweets();
-});
+    loadTweets();
+  });
 
 })
 

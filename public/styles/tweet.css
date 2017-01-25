@@ -53,8 +53,9 @@
 
 #tweets .tweet .tweet-body{
   height: 50px;
-  margin: 10px 10px;
+  margin: 5px 10px 40px 10px;
   padding-top: 10px;
+  word-wrap: break-word;
 }
 
 #tweets .tweet footer{
