@@ -1,11 +1,10 @@
 
 .new-tweet {
-  position: relative;
+  position: relative
   border-radius: 5px;
-  background-color: #dedada;
-  border-color: grey;
+  background-color: #e3e6ea;
   padding: 15px 10px;
-  margin: 20px 2em;
+  margin: 30px 2em;
 
 }
 .new-tweet h2{
@@ -21,8 +20,8 @@
 }
 
 .new-tweet span.counter{
-  position: absolute;
-  right: 12px;
+  position: relative;
+  float: right;
 
 
 }

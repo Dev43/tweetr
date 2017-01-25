@@ -52,19 +52,29 @@ var data = [
 ];
 
 
-
+// START OF THE DOCUMENT
  $(document).ready(function(){
+
+
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 
 function lastUpdated(date){
 
-  let secondsElapsed = Date.now() - date;
+  let secondsElapsed = (Date.now() - date) / 1000;
+
   let mins = secondsElapsed / 60;
   let hours = mins / 60;
-  let days = hours / 24 |0;
-  let years = days / 365.25 | 0
+  let days = hours / 24 | 0 ;
+  let years = days / 365.25 | 0;
+  console.log(days)
+  console.log(secondsElapsed)
 
-  if (days > 10){
+  if (days > 365){
     return years + ' years ago';
   } if(days > 1) {
     return days + " days ago";
@@ -76,15 +86,13 @@ function lastUpdated(date){
 function createTweetElement(tweet){
 
   let $tweet = $("<article>").addClass("tweet");
-
-
   let html = `<header>
               <img src=${tweet.user.avatars.small}>
-              <div class="user-name">${tweet.user.name}</div>
-              <div class="user-id">${tweet.user.handle}</div>
+              <div class="user-name">${escape(tweet.user.name)}</div>
+              <div class="user-id">${escape(tweet.user.handle)}</div>
               </header>
 
-              <div class="tweet-body">${tweet.content.text}</div>
+              <div class="tweet-body">${escape(tweet.content.text)}</div>
               <footer>${lastUpdated(tweet.created_at)}
               <div id="flag" class="fa fa-flag"></div>
               <div id="share" class="fa fa-retweet"></div>
@@ -98,21 +106,11 @@ function createTweetElement(tweet){
 
 
 function renderTweets(arrayOfTweets){
-
   arrayOfTweets.forEach(function(tweet){
     $('#tweets').append(createTweetElement(tweet));
   });
 
 }
-
-
-
-
-
-
-// Test / driver code (temporary)
-// $('#tweets').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
 
 
 renderTweets(data);

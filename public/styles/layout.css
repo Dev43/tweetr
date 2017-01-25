@@ -33,9 +33,7 @@ body {
 
  main {
   width: 450px;
-  height: 450px;
   background-color: white;
-  position: relative;
   margin: 80px auto;
   padding-top: 5px;
  }

@@ -1,4 +1,8 @@
 #tweets{
+  padding-bottom: 20px;
+}
+
+#tweets .tweet{
   position: relative;
   border-radius: 5px;
   margin: 20px 2em;
@@ -6,24 +10,29 @@
   border-width: 2px;
   border-style: solid;
   opacity: 0.9;
- }
- #tweets:hover{
+}
+#tweets .tweet:hover{
   border-color: grey;
   border-width: 2px;
   opacity: 1;
- }
+}
 
- #tweets:hover .tweet footer > *{
+#tweets .tweet:hover footer > *{
   display: block;
- }
+}
 
- #tweets .tweet header{
+#tweets .tweet header{
   position:relative;
   background-color: #b9cdf2;
-  }
+}
 
 #tweets .tweet header > * {
   display: inline;
+}
+
+#tweets .tweet img{
+  border-radius: 5px;
+  margin: 10px 0 3px 10px;
 }
 
 #tweets .tweet header .user-name {
@@ -32,8 +41,6 @@
   margin-left: 10px;
   font-weight: 700;
   font-size: 1.5em;
-
-
 }
 
 #tweets .tweet header .user-id {
@@ -44,20 +51,18 @@
   color: gray;
 }
 
-
-
 #tweets .tweet .tweet-body{
   height: 50px;
-  padding: 10px 10px
+  margin: 10px 10px;
+  padding-top: 10px;
 }
-
-
 
 #tweets .tweet footer{
   border-top-style: solid;
   border-top-width: 2px;
+  border-color: lightgray;
   background-color: #eeeeee;
-  height: 30px;
+  height: 35px;
   padding-top: 5px;
   padding-left: 10px
 }
