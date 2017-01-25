@@ -9,7 +9,6 @@ $('.new-tweet form textarea').on('keyup', function(event){
       count = MAXCHAR - count;
       counterElement.addClass("max-characters");
     }
-    console.log(count);
 
    counterElement[0].innerText = count;
 })

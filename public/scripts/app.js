@@ -63,24 +63,49 @@ function escape(str) {
 }
 
 
-function lastUpdated(date){
+// function lastUpdated(date){
 
-  let secondsElapsed = (Date.now() - date) / 1000;
+//   let secondsElapsed = (Date.now() - date) / 1000;
 
-  let mins = secondsElapsed / 60;
-  let hours = mins / 60;
-  let days = hours / 24 | 0 ;
-  let years = days / 365.25 | 0;
-  console.log(days)
-  console.log(secondsElapsed)
+//   let mins = secondsElapsed / 60;
+//   let hours = mins / 60;
+//   let days = hours / 24 | 0 ;
+//   let years = days / 365.25 | 0;
+//   console.log(days)
+//   console.log(secondsElapsed)
 
-  if (days > 365){
-    return years + ' years ago';
-  } if(days > 1) {
-    return days + " days ago";
-  }
-  return hours + " hours ago";
+//   if (days > 365){
+//     return years + ' years ago';
+//   } if(days > 1) {
+//     return days + " days ago";
+//   }
+//   return hours + " hours ago";
 
+// }
+
+function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
 }
 
 function createTweetElement(tweet){
@@ -93,15 +118,15 @@ function createTweetElement(tweet){
               </header>
 
               <div class="tweet-body">${escape(tweet.content.text)}</div>
-              <footer>${lastUpdated(tweet.created_at)}
+              <footer>${timeSince(tweet.created_at)}
               <div id="flag" class="fa fa-flag"></div>
               <div id="share" class="fa fa-retweet"></div>
               <div id="like" class="fa fa-heart-o"></div>
               </footer>
-              </article>`
+              `
 
-  $tweet = $tweet.append(html);
-  return $tweet;
+
+  return $tweet.append(html);
 }
 
 
@@ -114,5 +139,28 @@ function renderTweets(arrayOfTweets){
 
 
 renderTweets(data);
+
+
+function success(response){
+}
+
+$('form').on('submit', function(event){
+  event.preventDefault();
+
+  console.log($(this).serialize());
+
+  // $.ajax({
+  // type: "POST",
+  // url: "/tweets",
+  // data: $(this).serialize(),
+  // success: success
+  // });
+
+  $.post( "/tweets", $(this).serialize(), function( data ) {
+  console.log("It has been posted!!!");
+  console.log(data);
+});
+
+})
 
 });
