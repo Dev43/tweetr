@@ -1,8 +1,4 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+
 html {
   box-sizing: border-box;
 }
@@ -24,16 +20,21 @@ body {
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
   position: relative;
-}
 
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
- main {
+  main {
   width: 450px;
   background-color: white;
   margin: 80px auto;
   padding-top: 5px;
  }
+
+}
+
+
+@import "nav";
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+

@@ -1,0 +1,45 @@
+$nav-color: #00a087;
+
+nav {
+  position: fixed;
+  height: 80px + 10px;
+  width: 100%;
+  background-color: $nav-color;
+  color: #e8fdff;
+  padding-left: 2em;
+  padding-right: 2em;
+  top: 0;
+  z-index: 1000;
+
+.logo{
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+ .header {
+  float: left;
+  font-size: 2em;
+  padding-left: 10px;
+  line-height: 80px;
+}
+
+ #compose{
+  position: relative;
+  float: right;
+  top: 20px;
+  padding: 15px 10px 15px 10px;
+  background-color: white;
+  opacity: 0.7;
+  color: $nav-color;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 0.01em;
+  border-color: black;
+}
+
+#compose:hover{
+  opacity: 1;
+
+  }
+}

@@ -1,0 +1,178 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*
+ * Global layout stuff
+ */
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+  position: relative; }
+  body main {
+    width: 450px;
+    background-color: white;
+    margin: 80px auto;
+    padding-top: 5px; }
+
+nav {
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding-left: 2em;
+  padding-right: 2em;
+  top: 0;
+  z-index: 1000; }
+  nav .logo {
+    width: 80px;
+    height: 80px;
+    float: left; }
+  nav .header {
+    float: left;
+    font-size: 2em;
+    padding-left: 10px;
+    line-height: 80px; }
+  nav #compose {
+    position: relative;
+    float: right;
+    top: 20px;
+    padding: 15px 10px 15px 10px;
+    background-color: white;
+    opacity: 0.7;
+    color: #00a087;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0.01em;
+    border-color: black; }
+  nav #compose:hover {
+    opacity: 1; }
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+nav {
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding-left: 2em;
+  padding-right: 2em;
+  top: 0;
+  z-index: 1000; }
+  nav .logo {
+    width: 80px;
+    height: 80px;
+    float: left; }
+  nav .header {
+    float: left;
+    font-size: 2em;
+    padding-left: 10px;
+    line-height: 80px; }
+  nav #compose {
+    position: relative;
+    float: right;
+    top: 20px;
+    padding: 15px 10px 15px 10px;
+    background-color: white;
+    opacity: 0.7;
+    color: #00a087;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0.01em;
+    border-color: black; }
+  nav #compose:hover {
+    opacity: 1; }
+
+.new-tweet {
+  position: relative;
+  border-radius: 5px;
+  background-color: #e6eaf0;
+  padding: 15px 10px;
+  margin: 30px 2em;
+  display: none;
+  border-color: lightgray;
+  border-style: solid;
+  border-width: 0.01em; }
+  .new-tweet h2 {
+    border-bottom-style: solid;
+    border-bottom-width: 0.05em;
+    margin: 0 0 20px 0; }
+  .new-tweet form textarea {
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 5px; }
+  .new-tweet span.counter {
+    position: relative;
+    float: right; }
+
+.max-characters {
+  color: red; }
+
+#tweets {
+  padding-bottom: 20px; }
+  #tweets .tweet {
+    position: relative;
+    border-radius: 5px;
+    margin: 20px 2em;
+    border-color: lightgrey;
+    border-width: 2px;
+    border-style: solid;
+    opacity: 0.9; }
+    #tweets .tweet :hover {
+      border-color: grey;
+      border-width: 2px;
+      opacity: 1; }
+      #tweets .tweet :hover footer > * {
+        display: block; }
+    #tweets .tweet img {
+      border-radius: 5px;
+      margin: 10px 0 3px 10px; }
+    #tweets .tweet header {
+      position: relative;
+      background-color: #b9cdf2; }
+      #tweets .tweet header > * {
+        display: inline; }
+      #tweets .tweet header .user-name {
+        position: absolute;
+        top: 10px;
+        margin-left: 10px;
+        font-weight: 700;
+        font-size: 1.5em; }
+      #tweets .tweet header .user-id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-weight: 300;
+        color: gray; }
+    #tweets .tweet .tweet-body {
+      height: 50px;
+      margin: 5px 10px 40px 10px;
+      padding-top: 10px;
+      word-wrap: break-word; }
+    #tweets .tweet footer {
+      border-top-style: solid;
+      border-top-width: 2px;
+      border-color: lightgray;
+      background-color: #eeeeee;
+      height: 35px;
+      padding-top: 5px;
+      padding-left: 10px; }
+    #tweets .tweet footer > * {
+      float: right;
+      margin: 0 5px;
+      color: cyan;
+      font-size: 1.2em;
+      display: none; }
+
+/*# sourceMappingURL=main.css.map */
