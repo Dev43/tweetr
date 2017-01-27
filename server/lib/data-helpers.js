@@ -33,11 +33,12 @@ module.exports = function makeDataHelpers(db) {
        db.collection('tweets')
        .updateOne({ "user.handle": { $eq: handle }},
          { $inc: {like: 1}, $push: {peopleWhoLiked: personWhoLiked}}, {}, (err, result) => {
+          console.log(err);
           if(err){
-            callback(err);
+            callback(err, null);
           }
             callback(null,result);
          });
-     }
+       } // did not throw an error
   };
 }

@@ -41,11 +41,11 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.put("/:handle/like", function(req, res){
+  tweetsRoutes.put("/:id/like", function(req, res){
              //increment the like in db
              // ME refers to the person who liked the tweet
 
-     DataHelpers.likeTweets(req.params.handle, 'ME', function(error){
+     DataHelpers.likeTweets(req.params.id, 'ME', function(error, result){
       if(error){
         res.status(500).json({ error: err.message });
       } else {
@@ -53,11 +53,6 @@ module.exports = function(DataHelpers) {
       }
 
      });
-    // if(isSuccessfullUpdate){
-    //   res.status(201).send();
-    // } else{
-    //   res.status(500).send("Problems with the database");
-    // }
 
 
   });
