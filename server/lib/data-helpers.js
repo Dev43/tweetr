@@ -23,6 +23,13 @@ module.exports = function makeDataHelpers(db) {
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
         callback(null, tweets.sort(sortNewestFirst));
       });
+    },
+
+    likeTweets: function(handle){
+      db.collection('tweets')
+        .find({ "user.handle": { $eq: handle }})
+        .toArray((err,result) => console.log(result) )
+      //db.collection('tweets').update({likes:1}, {$set:{b:2}});
     }
 
   };

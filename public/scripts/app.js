@@ -81,12 +81,13 @@ function renderTweets(arrayOfTweets){
 }
 
 
+
+
 $('form').on('submit', function(event){
   event.preventDefault();
-
   if (event.target[0].value.length > 140){
     return alert('Text too long, please give me a shorter text')
-  } else if(!event.target[0].value.length){
+  } else if(!event.target[0].value.length || !event.target[0].value.split(" ").join("").length){
     return alert('Please input a text!');
   }
 
@@ -96,7 +97,7 @@ $('form').on('submit', function(event){
   });
   $("form textarea").val("");
 
-})
+});
 
 $("#nav-bar #compose").on('click', function(){
 
@@ -104,7 +105,7 @@ $("#nav-bar #compose").on('click', function(){
   $('.new-tweet textarea').focus()
 
 
-})
+});
 
 });
 

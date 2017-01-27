@@ -11,7 +11,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,6 +31,7 @@
       <img class="logo" src="/images/bird.png" >
       <span class="header">Tweeter</span>
       <button id="compose" class="fa-pencil-square-o"> Compose </button>
+
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -39,6 +40,7 @@
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
+
           <input type="submit" value="Tweet">
           <span class="counter">0</span>
         </form>

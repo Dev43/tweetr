@@ -18,6 +18,7 @@
     "mongodb": "^2.2.22"
   },
   "devDependencies": {
+    "morgan": "^1.7.0",
     "nodemon": "^1.9.2"
   }
 }

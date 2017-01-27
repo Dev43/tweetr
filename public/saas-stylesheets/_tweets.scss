@@ -1,6 +1,12 @@
 #tweets {
   padding-bottom: 20px;
 
+ .tweet:hover{
+  border-color: grey;
+  border-width: 2px;
+  opacity: 1;
+}
+
 
 .tweet{
   position: relative;
@@ -11,15 +17,28 @@
   border-style: solid;
   opacity: 0.9;
 
-:hover{
-  border-color: grey;
-  border-width: 2px;
-  opacity: 1;
+footer{
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-color: lightgray;
+  background-color: #eeeeee;
+  height: 35px;
+  padding-top: 5px;
+  padding-left: 10px
+}
 
- footer > *{
+footer > * {
+  float: right;
+  margin: 0 5px;
+  color: cyan;
+  font-size: 1.2em;
+  display: none;
+    }
+
+}
+.tweet:hover footer > * {
   display: block;
   }
-}
 
 img{
   border-radius: 5px;
@@ -57,23 +76,7 @@ header {
   word-wrap: break-word;
 }
 
-footer{
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-color: lightgray;
-  background-color: #eeeeee;
-  height: 35px;
-  padding-top: 5px;
-  padding-left: 10px
-}
 
-footer > * {
-  float: right;
-  margin: 0 5px;
-  color: cyan;
-  font-size: 1.2em;
-  display: none;
-    }
   }
 
-}
+

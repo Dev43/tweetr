@@ -41,6 +41,16 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.put("/:handle", function(req, res){
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      //increment the like in db
+      DataHelpers.likeTweets(req.params.handle);
+    }
+
+  })
+
   return tweetsRoutes;
 
 }
