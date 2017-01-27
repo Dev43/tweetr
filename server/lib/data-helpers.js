@@ -25,19 +25,19 @@ module.exports = function makeDataHelpers(db) {
       });
     },
 
-    likeTweets: function(handle, res){
+    likeTweets: function(handle, personWhoLiked, callback){
       // db.collection('tweets')
       //   .find({ "user.handle": { $eq: handle }})
       //   .toArray((err,result) => console.log(result) )
-        return db.collection('tweets')
-       .updateOne({ "user.handle": { $eq: handle }},
-         { $inc: {like: 1}}, {}, function(err, result){
-          if(err){
-            return res.status(500).send("error");
-          }
-          return res.status(200).send();
-         });
-    }
 
+       db.collection('tweets')
+       .updateOne({ "user.handle": { $eq: handle }},
+         { $inc: {like: 1}, $push: {peopleWhoLiked: personWhoLiked}}, {}, (err, result) => {
+          if(err){
+            callback(err);
+          }
+            callback(null,result);
+         });
+     }
   };
 }

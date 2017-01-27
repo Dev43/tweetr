@@ -16,7 +16,7 @@ function loadTweets(){
   })
 }
 
-loadTweets();
+
 
 function escape(str) {
   var div = document.createElement('div');
@@ -61,9 +61,9 @@ function createTweetElement(tweet){
 
               <div class="tweet-body">${escape(tweet.content.text)}</div>
               <footer>${timeSince(tweet.created_at)}
-              <div id="flag" class="fa fa-flag"></div>
-              <div id="share" class="fa fa-retweet"></div>
-              <div id="like" class="fa fa-heart-o"></div>
+              <div id="flag" data-handle = ${escape(tweet.user.handle)} class="fa fa-flag"></div>
+              <div id="share" data-handle = ${escape(tweet.user.handle)} class="fa fa-retweet"></div>
+              <div id="like" data-handle = ${escape(tweet.user.handle)} class="fa fa-heart-o"></div>
               </footer>
               `
 
@@ -73,6 +73,9 @@ function createTweetElement(tweet){
 
 
 function renderTweets(arrayOfTweets){
+  // when you send a post request to the server upon completion
+  // get back the actual tweet, and render it, not all of them
+  // again.
   $('#tweets').empty();
   arrayOfTweets.forEach(function(tweet){
     $('#tweets').prepend(createTweetElement(tweet));
@@ -80,6 +83,28 @@ function renderTweets(arrayOfTweets){
 
 }
 
+
+
+
+function initializePage(){ // loads tweets and bind the event listeners
+
+  loadTweets();
+
+
+  $( "#tweets" ).on( "click", "#like", function( event ) {
+      //event.preventDefault();
+      const handle = $(this).data().handle;
+
+       $.ajax({url: `tweets/${handle}/like`,
+                method: "PUT",
+                  success: toggleLike
+                });
+
+    function toggleLike(){
+      console.log('i was toggled!');
+      console.log($(this))
+    }
+  });
 
 
 
@@ -96,16 +121,16 @@ $('form').on('submit', function(event){
     loadTweets();
   });
   $("form textarea").val("");
-
 });
 
 $("#nav-bar #compose").on('click', function(){
-
   $('.new-tweet').slideToggle();
   $('.new-tweet textarea').focus()
-
-
 });
+
+  }
+
+  initializePage();
 
 });
 
