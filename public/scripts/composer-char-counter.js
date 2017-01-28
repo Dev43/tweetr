@@ -16,7 +16,7 @@ function charCount(element){
 $('.new-tweet form').on('submit', function(event){
   charCount($('.new-tweet form textarea'));
 })
-$('.new-tweet form .text').on('keyup', function(event){
+$('.new-tweet form textarea').on('keyup', function(event){
   charCount($(this));
 });
 

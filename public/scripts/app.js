@@ -103,9 +103,7 @@ function initializePage(){ // loads tweets and bind the event listeners
                 });
 
     function toggleLike(){
-      console.log('i was toggled!');
-      console.log(element);
-      element.toggleClass("toggled")
+      element.toggleClass("toggled");
     }
   });
 
