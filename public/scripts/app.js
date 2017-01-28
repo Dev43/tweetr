@@ -53,6 +53,7 @@ function timeSince(date) {
 function createTweetElement(tweet){
 
   let $tweet = $("<article>").addClass("tweet");
+
   let html = `<header>
               <img src=${tweet.user.avatars.small}>
               <div class="user-name">${escape(tweet.user.name)}</div>
@@ -61,12 +62,12 @@ function createTweetElement(tweet){
 
               <div class="tweet-body">${escape(tweet.content.text)}</div>
               <footer>${timeSince(tweet.created_at)}
-              <div id="flag" data-handle = ${escape(tweet.user.handle)} class="fa fa-flag"></div>
-              <div id="share" data-handle = ${escape(tweet.user.handle)} class="fa fa-retweet"></div>
-              <div id="like" data-handle = ${escape(tweet.user.handle)} class="fa fa-heart-o"></div>
+              <div id="flag" data-id = ${escape(tweet._id)} class="fa fa-flag"></div>
+              <div id="share" data-id = ${escape(tweet._id)} class="fa fa-retweet"></div>
+              <div id="like" data-id = ${escape(tweet._id)} class="fa fa-heart-o"></div>
               </footer>
               `
-
+//change handle to the db id
 
   return $tweet.append(html);
 }
@@ -93,16 +94,18 @@ function initializePage(){ // loads tweets and bind the event listeners
 
   $( "#tweets" ).on( "click", "#like", function( event ) {
       //event.preventDefault();
-      const handle = $(this).data().handle;
+      const id = $(this).data().id;
+      const element = $(this);
 
-       $.ajax({url: `tweets/${handle}/like`,
+       $.ajax({url: `tweets/${id}/like`,
                 method: "PUT",
                   success: toggleLike
                 });
 
     function toggleLike(){
       console.log('i was toggled!');
-      console.log($(this))
+      console.log(element);
+      element.toggleClass("toggled")
     }
   });
 

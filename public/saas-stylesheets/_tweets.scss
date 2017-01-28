@@ -1,6 +1,4 @@
-.toggled {
-  color: cyan;
-}
+
 
 #tweets {
   padding-bottom: 20px;
@@ -38,6 +36,10 @@ footer > * {
   font-size: 1.2em;
   display: none;
 }
+.toggled {
+  color: cyan;
+}
+
 
 }
 .tweet:hover footer > * {
@@ -82,5 +84,6 @@ header {
 
 
   }
+
 
 

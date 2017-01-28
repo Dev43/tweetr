@@ -86,9 +86,6 @@ nav {
 .max-characters {
   color: red; }
 
-.toggled {
-  color: cyan; }
-
 #tweets {
   padding-bottom: 20px; }
   #tweets .tweet:hover {
@@ -117,6 +114,8 @@ nav {
       color: grey;
       font-size: 1.2em;
       display: none; }
+    #tweets .tweet .toggled {
+      color: cyan; }
   #tweets .tweet:hover footer > * {
     display: block; }
   #tweets img {
