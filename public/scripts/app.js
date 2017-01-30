@@ -13,7 +13,7 @@
 function loadTweets(){
   $.getJSON("/tweets", function(arrayOfTweets){
     renderTweets(arrayOfTweets)
-  })
+  });
 }
 
 
@@ -67,9 +67,7 @@ function createTweetElement(tweet){
               <div id="like" data-id = ${escape(tweet._id)} class="fa fa-heart-o"></div>
               <div id="likeNum" data-id = ${escape(tweet._id)}>0</div>
 
-              </footer>
-              `
-//change handle to the db id
+              </footer>`
 
   return $tweet.append(html);
 }
@@ -92,7 +90,6 @@ function renderTweets(arrayOfTweets){
 function initializePage(){ // loads tweets and bind the event listeners
 
   loadTweets();
-
 
   $( "#tweets" ).on( "click", "#like", function( event ) {
       //event.preventDefault();
@@ -134,8 +131,6 @@ $("#nav-bar #compose").on('click', function(){
 });
 
   }
-
-
 
   initializePage();
 

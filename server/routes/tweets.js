@@ -47,7 +47,7 @@ module.exports = function(DataHelpers) {
              //increment the like in db
              // ME refers to the person who liked the tweet
              //There to implement in login in the future
-     DataHelpers.likeTweets(req.params.id, 'ME', function(err, info){
+    DataHelpers.likeTweets(req.params.id, 'ME', function(err, info){
       if(err){
         res.status(500).json({ error: err.message });
       } else {
@@ -55,17 +55,10 @@ module.exports = function(DataHelpers) {
           if(error){
             return res.status(500).json({ error: err.message });
           }
-          console.log(result);
-           res.send(result +"");
-
-        })
+          res.send(result +"");
+        });
       }
-
-     });
-
-
+    });
   });
-
   return tweetsRoutes;
-
 }
