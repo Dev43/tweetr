@@ -25,13 +25,11 @@ module.exports = function makeDataHelpers(db) {
 
     likeTweets: function(id, personWhoLiked, callback){
       db.collection('tweets').findOne({ "_id": ObjectId(id) },(err, tweet) => {
-      console.log(tweet);
       if(tweet.peopleWhoLiked.indexOf(personWhoLiked) === -1){ // if he is not there
 
        db.collection('tweets') // update db
        .updateOne({ "_id": ObjectId(id) },
          { $inc: {likes: 1}, $push: {peopleWhoLiked: personWhoLiked}}, {}, (err, result) => {
-          console.log(err);
           if(err){
             callback(err, null);
           }
@@ -41,7 +39,6 @@ module.exports = function makeDataHelpers(db) {
         db.collection('tweets')
         .updateOne({ "_id": ObjectId(id) },
          { $inc: {likes: -1}, $pull: {peopleWhoLiked: personWhoLiked}}, {}, (err, result) => {
-          console.log(err);
           if(err){
             callback(err, null);
           }
@@ -51,6 +48,20 @@ module.exports = function makeDataHelpers(db) {
       }
       });
 
-       } // did not throw an error
+       },
+
+       getTweetLikes: function(id, callback){
+        db.collection('tweets').findOne({ "_id": ObjectId(id) }, (err, tweet) => {
+
+          if(err){
+            callback(err, null);
+          } else {
+            // console.log(tweet.likes);
+            callback(null, tweet.likes);
+          }
+
+        });
+
+       }
   };
 }

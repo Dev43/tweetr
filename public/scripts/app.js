@@ -65,6 +65,8 @@ function createTweetElement(tweet){
               <div id="flag" data-id = ${escape(tweet._id)} class="fa fa-flag"></div>
               <div id="share" data-id = ${escape(tweet._id)} class="fa fa-retweet"></div>
               <div id="like" data-id = ${escape(tweet._id)} class="fa fa-heart-o"></div>
+              <div id="likeNum" data-id = ${escape(tweet._id)}>0</div>
+
               </footer>
               `
 //change handle to the db id
@@ -102,10 +104,12 @@ function initializePage(){ // loads tweets and bind the event listeners
                   success: toggleLike
                 });
 
-    function toggleLike(){
+    function toggleLike(response){
       element.toggleClass("toggled");
+      $(`[data-id=${id}]:last`).text(response);
     }
   });
+
 
 
 
@@ -130,6 +134,8 @@ $("#nav-bar #compose").on('click', function(){
 });
 
   }
+
+
 
   initializePage();
 

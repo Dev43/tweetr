@@ -46,12 +46,19 @@ module.exports = function(DataHelpers) {
   tweetsRoutes.put("/:id/like", function(req, res){
              //increment the like in db
              // ME refers to the person who liked the tweet
-
-     DataHelpers.likeTweets(req.params.id, 'ME', function(error, result){
-      if(error){
+             //There to implement in login in the future
+     DataHelpers.likeTweets(req.params.id, 'ME', function(err, info){
+      if(err){
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        DataHelpers.getTweetLikes(req.params.id, function(error, result){
+          if(error){
+            return res.status(500).json({ error: err.message });
+          }
+          console.log(result);
+           res.send(result +"");
+
+        })
       }
 
      });
