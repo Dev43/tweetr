@@ -9,7 +9,7 @@ const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 const morgan = require('morgan');
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
