@@ -10,12 +10,6 @@
  $(document).ready(function(){
 
 
-function loadTweets(){
-  $.getJSON("/tweets", function(arrayOfTweets){
-    renderTweets(arrayOfTweets)
-  });
-}
-
 
 
 function escape(str) {
@@ -50,6 +44,12 @@ function timeSince(date) {
     return Math.floor(seconds) + " seconds";
 }
 
+
+function loadTweets(){
+  $.getJSON("/tweets", function(arrayOfTweets){
+    renderTweets(arrayOfTweets)
+  });
+}
 function createTweetElement(tweet){
 
   let $tweet = $("<article>").addClass("tweet");
@@ -129,6 +129,21 @@ $("#nav-bar #compose").on('click', function(){
   $('.new-tweet').slideToggle();
   $('.new-tweet textarea').focus()
 });
+
+
+$("#register").on('click', (event) => {
+$.get("/register")
+$('#tweets').empty();
+let html = `
+<form action="/register" id="registrationForm" method="POST">
+ EMAIL: <input type="email" name="email">
+PASSWORD: <input type="password" name="password">
+</form>`
+return $('#tweets').append(html);
+
+})
+
+
 
   }
 

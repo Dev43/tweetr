@@ -8,11 +8,17 @@ const bodyParser    = require("body-parser");
 const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = process.env.MONGODB_URI;
+const secret_key = process.env.secret_key;
+const cookieSession = require('cookie-session');
 
 //const morgan = require('morgan');
 //app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: [secret_key, 'key2']
+}))
 
 // The in-memory database of tweets. It's a basic object with an array in it.
 // const db = require("./lib/in-memory-db");
@@ -35,8 +41,14 @@ const DataHelpers = require("./lib/data-helpers.js")(db);
 // so it can define routes that use it to interact with the data layer.
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
+
+app.get('/register', (req,res) => {
+
+})
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
+
+
 
 
 });
